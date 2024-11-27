@@ -18,9 +18,9 @@
             height: 100vh;
             background: linear-gradient(to bottom, 
                 rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0) 15%,
-                rgba(255, 255, 255, 0) 33%,
-                rgba(255, 255, 255, 0.918) 45%, 
+                rgba(255, 255, 255, 0) 20%,
+                rgba(255, 255, 255, 0) 35%,
+                rgba(255, 255, 255, 0.918) 43%, 
                 rgb(255, 255, 255) 100%),
                 url('export_mer_paysage.png');
             background-size: cover;
@@ -80,7 +80,7 @@
             width: 300px; /* Taille de la carte */
             height: 300px;
             position: absolute;
-            top: 20px; /* Positionné en haut à gauche */
+            top: 100px; /* Positionné en haut à gauche */
             right: 20px; /* Positionné à droite */
             border-left: solid;
             border-color: #ffffff;
@@ -88,10 +88,30 @@
             z-index: 1;
         }
 
-        /* Style de la barre de navigation sous le titre */
+        /* Section avec l'image et le texte à côté */
+        .photo-texte {
+            display: flex;
+            align-items: center;
+            margin-top: 50px;
+            padding: 20px;
+        }
+
+        .photo-texte img {
+            width: 150px;  /* Taille de l'image */
+            height: 150px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .photo-texte .texte {
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* Style de la barre de navigation en haut */
         .navbar {
             position: fixed;
-            top: 350px;  /* La navbar sera placée après un espace de 60px */
+            top: 0;  /* Fixe la navbar en haut */
             left: 0;
             width: 100%;
             background-color: #ffffff;
@@ -100,6 +120,7 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Ombre pour la navbar */
         }
 
         /* Style des boutons de la navbar */
@@ -153,9 +174,41 @@
             background-color: #ddd;
         }
 
+   /* Zone principale sous la navbar */
+.content-zone {
+    padding: 50px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    height: auto;
+}
+
     </style>
 </head>
 <body>
+
+    <!-- Barre de navigation en haut -->
+    <div class="navbar">
+        <a href="https://toma-tl.github.io/Thomas-Lemoigne/" style="text-decoration: none;">
+            <button>Accueil</button>
+        </a>
+        <div class="dropdown">
+            <button>Productions</button>
+            <div class="dropdown-content">
+                <a href="#">Cartographiques</a>
+                <a href="#">Ateliers professionnels</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button>Expériences</button>
+            <div class="dropdown-content">
+                <a href="#">Stage Parc Naturel Regional MCB</a>
+                <a href="#">Bénévolat LPO</a>
+                <a href="#">autres</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Contenu principal -->
     <div class="main-content">
@@ -163,27 +216,18 @@
             <h1>Thomas Lemoigne</h1>
         </div>
 
-        <!-- Barre sous le titre -->
-        <div class="navbar">
-            <a href="https://toma-tl.github.io/Thomas-Lemoigne/" style="text-decoration: none;">
-                <button>Accueil</button>
-            </a>
-            <div class="dropdown">
-                <button>Productions</button>
-                <div class="dropdown-content">
-                    <a href="#">Cartographiques</a>
-                    <a href="#">Ateliers professionnels</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button>Expériences</button>
-                <div class="dropdown-content">
-                    <a href="#">Stage Parc Naturel Regional MCB</a>
-                    <a href="#">Bénévolat LPO</a>
-                    <a href="#">autres</a>
-                </div>
+        <!-- Zone sous la navbar -->
+        <div class="content-zone">
+            <h2>Mon profil</h2>
+            <p>Je suis passionné par la cartographie et l'environnement. Ce site présente mes projets, mes expériences professionnelles, ainsi que mes intérêts personnels.</p>
+            <p>Vous pouvez naviguer à travers les différentes sections pour découvrir davantage sur mon travail.</p>
+            
+            <!-- Bouton ajouté -->
+            <div class="bouton">
+                <button onclick="location.href='#'">Mon CV</button>
             </div>
         </div>
+        
     </div>
 
     <!-- Carte placée en haut à droite -->
@@ -193,7 +237,7 @@
         const map = new mapboxgl.Map({
             container: "map",
             style: "https://openmaptiles.geo.data.gouv.fr/styles/osm-bright/style.json",
-            zoom: 14.3,
+            zoom: 3,
             center: [-1.7028425633630784, 48.11784459245443],
             minZoom: 5,
             pitch: 45,
