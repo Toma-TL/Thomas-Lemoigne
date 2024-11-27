@@ -4,11 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document de Thomas</title>
+    <style>
+      
+
+
+        .Titre {
+          font-size: 20px;
+          font: 1.2rem "Fira Sans", serif;
+          position: relative;
+          padding: 10px 30px 10px 30px;
+          background: #264653;
+          color: white;
+          text-align: center;
+        }
+  
+  
+        .bouton button{
+          display: block;
+          position: relative;
+          padding: 10px 10px 10px 10px;
+          background-color:white;
+          color: white;
+          text-align: center;
+          display: inline-block;
+          font-size: 16px;
+          transition-duration: 0.4s;
+          cursor: pointer;
+          border: solid;
+          border-color: white;
+          border-radius: 15px;
+          color: black;
+          text-align: center;
+        }
+          
+        .bouton button:hover {
+          background-color: #264653;
+          color: #f4a261;
+        }
+  
+          #map {
+          position: fixed;
+          width: 99%;
+          height: 400px;
+        }
+  
+  
+  
+        .Titre_carto_1{
+          position: relative;
+          padding: 10px 30px 10px 30px;
+          font-size: 30px;
+          font: 1.2rem "Fira Sans", serif;
+          background: #D4D3DC;
+        }
+  
+      </style>
 </head>
 <body>
-    <h1>test de site v2</h1>
-    <h2> version de test</h2>
-    <h3>text encore</h3>
-    <h4>nouveau texte dans h4</h4>
-</body>
+
+    <div class="Titre">
+      <h1>Carte web</h1>
+    </div>
+
+
+
+    <div class ="bouton">
+      <button class ="bouton1" onclick="window.location.href = 'https://carentanlesmarais.fr/';"> 
+          Site de la Commune</button>
+      <button class ="bouton2" onclick="window.location.href = 'https://fr.wikipedia.org/wiki/Carentan-les-Marais';"> 
+          Wiki Commune </button>
+      <button class ="bouton3" onclick="window.location.href = 'https://www.ccbdc.fr/';"> 
+          Site de la ComCom</button>
+	  <button class ="bouton4" onclick="window.location.href = 'https://www.google.fr/maps/@49.3056531,-1.2448831,3089m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI0MTAwNS4yIKXMDSoASAFQAw%3D%3D;"> 
+          GG map</button>  
+    </div>
 </html>
