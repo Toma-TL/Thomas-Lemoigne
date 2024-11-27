@@ -10,75 +10,191 @@
     />
     <title>Document de Thomas</title>
     <style>
+        /* Style général du body */
+        body {
+            font-size: 20px;
+            font: 1.2rem "Fira Sans", serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;  /* Changer l'alignement à une colonne */
+            height: 100vh;  /* Hauteur de la page pour occuper tout l'espace */
+        }
+
+        /* Style du container principal */
+        .main-content {
+            flex-grow: 1;  /* Prend tout l'espace disponible */
+            padding: 20px;
+            background-color: #212324;
+            overflow: auto;  /* Permet le défilement si nécessaire */
+            margin-left: 0px;  /* Décale le contenu principal pour laisser de l'espace pour la sidebar gauche */
+        }
+
         .Titre {
-          font-size: 20px;
-          font: 1.2rem "Fira Sans", serif;
-          position: relative;
-          padding: 10px 30px 10px 30px;
-          background: #264653;
-          color: white;
-          text-align: center;
+            font-size: 30px;
+            font-family: 'Oranienbaum', sans-serif; /* Utilisation de la police locale */
+            position: absolute;
+            padding: 10px 20px 10px 20px;
+            background: #212324;
+            color: white;
+            text-align: center;
+            z-index: 5;
         }
 
         .bouton button {
-          display: block;
-          position: relative;
-          padding: 10px 10px 10px 10px;
-          background-color:white;
-          color: white;
-          text-align: center;
-          display: inline-block;
-          font-size: 16px;
-          transition-duration: 0.4s;
-          cursor: pointer;
-          border: solid;
-          border-color: white;
-          border-radius: 15px;
-          color: black;
-          text-align: center;
+            display: block;
+            position: relative;
+            padding: 10px 10px 10px 10px;
+            background-color:white;
+            color: white;
+            text-align: left;
+            display: inline-block;
+            font-size: 16px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border: solid;
+            border-color: white;
+            border-radius: 0px;
+            color: black;
+            text-align: left;
         }
 
         .bouton button:hover {
-          background-color: #555555;
-          color: #493c92;
+            background-color: #212324;
+            color: #c72424;
+        }
+
+        /* Bandeau latéral droit */
+        .sidebar-right {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 350px;
+            height: 100%;
+            background-color: #212324;
+            padding: 20px;
+            border-left: 0px solid #ffffff;
+            z-index: 10;
+        }
+
+        /* Bandeau latéral gauche avec menu stylisé */
+        .sidebar-left {
+            position: fixed;
+            top: 250px; /* Décale la sidebar sous le titre */
+            left: 0;
+            width: 200px;
+            height: calc(100% - 250px); /* La hauteur de la sidebar est réduite de la hauteur du titre */
+            background-color: #333;
+            padding: 20px;
+            color: white;
+            border-right:  dotted 1px #ffffff;
+            z-index: 10;
+            transition: transform 0.3s ease;
+        }
+
+        /* Titre du menu "A voir" */
+        .menu-title {
+            font-size: 20px;
+            font: 1.2rem "Fira Sans", serif;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding: 5px 0;
+            text-align: center;
+        }
+
+        /* Style du bouton du menu déroulant */
+        .dropdown-btn {
+            background-color: #212324;
+            font-size: 20px;
+            font: 1.2rem "Fira Sans", serif;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* Effet de survol sur le bouton du menu déroulant */
+        .dropdown-btn:hover {
+            background-color: #c72424;
+        }
+
+        /* Style du contenu du menu déroulant */
+        .dropdown-content {
+            display: none;
+            padding-left: 5px;
+            background-color: #ffffff;
+            border-radius: 2px;
+            margin-top: 10px;
+        }
+
+        /* Liste des éléments du menu */
+        .dropdown-content a {
+            display: block;
+            padding: 8px;
+            margin-right: 8px;
+            margin-left: 8px;
+            color: #264653;
+            text-decoration: none;
+            transition: 1s;
+            border-bottom: dotted 1px #212324; /* Réduire la largeur de la bordure à 1px */
+        }
+
+
+        /* Effet de survol des éléments du menu */
+        .dropdown-content a:hover {
+            background-color: #c72424;
+        }
+
+        /* Carte */
+        .Titre_carto_1 {
+            font-size: 20px;
+            font: 1.2rem "Fira Sans", serif;
+            background: #c724245e;
+            padding: 5px 10px;
+            margin-bottom: 0;  /* Retirer la marge pour coller le titre à la carte */
+            text-align: left;
+            color: #ffffff;
+            border-left: solid;
+            border-color: #ffffff;
+            border-radius: 0px;
         }
 
         #map {
-          position: absolute;  /* Fixe la carte en haut à droite */
-          top: 10px;  /* Espace depuis le haut */
-          right: 10px;  /* Espace depuis la droite */
-          width: 400px;  /* Largeur de la carte */
-          height: 300px;  /* Hauteur de la carte */
-        }
-
-        .Titre_carto_1 {
-          position: absolute;
-          top: 10px;  /* Espace depuis le haut */
-          right: 10px;  /* Espace depuis la droite */
-          padding: 10px 30px 10px 30px;
-          font-size: 20px;
-          font: 1.2rem "Fira Sans", serif;
-          background: #D4D3DC;
-          text-align: center;
-          color: #493c92;
+            width: 100%;
+            height: 300px;
+            margin-top: 0px; /* Ajouter un petit espace entre le titre et la carte */
+            border-left: solid;
+            border-color: #ffffff;
+            border-radius: 0px;
         }
     </style>
 </head>
 <body>
 
-    <div class="Titre">
-      <h1>Carte web</h1>
+    <!-- Sidebar gauche -->
+    <div class="sidebar-left">
+        <div class="menu-title"></div>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Sites & réfférences ↓</button>
+        <div class="dropdown-content">
+            <a onclick="window.location.href = 'https://formations.univ-rennes2.fr/fr/formations/master-37/master-mention-geomatique-parcours-systeme-d-information-geographique-et-analyse-des-territoires-sigat-JEOC8L9A.html';">Site universitaire - master SIGAT</a>
+            <a onclick="window.location.href = 'https://esigat.wordpress.com/';">Site eSIGAT</a>
+            <a href="#">Lien 3</a>
+        </div>
     </div>
 
-    <div class ="bouton">
-      <button class ="bouton1" onclick="window.location.href = 'https://formations.univ-rennes2.fr/fr/formations/master-37/master-mention-geomatique-parcours-systeme-d-information-geographique-et-analyse-des-territoires-sigat-JEOC8L9A.html';"> 
-          "Site universitaire - master SIGAT"</button>
-      <button class ="bouton2" onclick="window.location.href = 'https://esigat.wordpress.com/';"> 
-          "Site eSIGAT" </button>
+    <!-- Contenu principal -->
+    <div class="main-content">
+        <div class="Titre">
+          <h1>Thomas Lemoigne</h1>
+        </div>
     </div>
 
-    <div class="card">
-        <!-- Nouveau titre pour la localisation du master -->
+    <!-- Bandeau latéral droit avec carte -->
+    <div class="sidebar-right">
         <h2 class="Titre_carto_1">Localisation du master</h2>
         <div id="map"></div>
         <script>
@@ -86,13 +202,21 @@
           container: "map",
           style:"https://openmaptiles.geo.data.gouv.fr/styles/osm-bright/style.json", // Fond de carte
           zoom: 14.3, // Zoom
-          center: [-1.2476297131851721,49.303142214022714],
+          center: [-1.7028425633630784,48.11784459245443],
           minZoom: 5,
         });
         map.addControl(new mapboxgl.FullscreenControl());
         map.addControl(new mapboxgl.NavigationControl());
         </script>
     </div>
+
+    <script>
+        // Fonction pour ouvrir et fermer le menu déroulant
+        function toggleDropdown() {
+            var content = document.querySelector(".dropdown-content");
+            content.style.display = content.style.display === "block" ? "none" : "block";
+        }
+    </script>
 
 </body>
 </html>
