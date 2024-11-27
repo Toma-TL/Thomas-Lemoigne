@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.maptiler.com/maplibre-gl-js/v1.13.0-rc.4/mapbox-gl.js"></script>
+    <link
+      href="https://cdn.maptiler.com/maplibre-gl-js/v1.13.0-rc.4/mapbox-gl.css"
+      rel="stylesheet"
+    />
     <title>Document de Thomas</title>
     <style>
       
@@ -70,8 +75,29 @@
 
     <div class ="bouton">
       <button class ="bouton1" onclick="window.location.href = 'https://formations.univ-rennes2.fr/fr/formations/master-37/master-mention-geomatique-parcours-systeme-d-information-geographique-et-analyse-des-territoires-sigat-JEOC8L9A.html';"> 
-          Site universitaire - master SIGAT</button>
+          "Site universitaire - master SIGAT"</button>
       <button class ="bouton2" onclick="window.location.href = 'https://esigat.wordpress.com/';"> 
-          Site du master </button>
+          "Site eSIGAT" </button>
     </div>
+
+
+
+
+    <div class="card">
+        <h2 class="Titre_carto_1">Carte interractive Carentan</h2>
+          <div id="map"></div>
+          <script>
+          const map = new mapboxgl.Map({
+            container: "map",
+            style:"https://openmaptiles.geo.data.gouv.fr/styles/osm-bright/style.json", //Fond de carte
+            zoom: 14.3, // Zoom
+            center: [-1.2476297131851721,49.303142214022714],
+            minZoom: 5,
+          })
+              map.addControl(new mapboxgl.FullscreenControl());
+              map.addControl(new mapboxgl.NavigationControl());
+    
+          </script>
+          
+        </div>
 </html>
