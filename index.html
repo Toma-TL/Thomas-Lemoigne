@@ -11,166 +11,170 @@
     <title>Document de Thomas</title>
     <style>
         /* Style général du body */
-        body {
-            font-size: 20px;
-            font: 1.2rem "Fira Sans", serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;  /* Changer l'alignement à une colonne */
-            height: 100vh;  /* Hauteur de la page pour occuper tout l'espace */
-        }
+body {
+    font-size: 20px;
+    font: 1.2rem "Fira Sans", serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;  /* Changer l'alignement à une colonne */
+    height: 100vh;  /* Hauteur de la page pour occuper tout l'espace */
+    background-image: url('export_mer_paysage.png'); /* Image de fond */
+    background-size: cover; /* Couvre toute la page */
+    background-position: center; /* Centrer l'image */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+}
 
-        /* Style du container principal */
-        .main-content {
-            flex-grow: 1;  /* Prend tout l'espace disponible */
-            padding: 20px;
-            background-color: #212324;
-            overflow: auto;  /* Permet le défilement si nécessaire */
-            margin-left: 0px;  /* Décale le contenu principal pour laisser de l'espace pour la sidebar gauche */
-        }
+/* Style du container principal */
+.main-content {
+    flex-grow: 1;  /* Prend tout l'espace disponible */
+    padding: 20px;
+    background-color: rgba(33, 35, 36, 0.7); /* Fond semi-transparent pour lisibilité */
+    overflow: auto;
+    margin-left: 0px;
+}
 
-        .Titre {
-            font-size: 30px;
-            font-family: 'Oranienbaum', sans-serif; /* Utilisation de la police locale */
-            position: absolute;
-            padding: 10px 20px 10px 20px;
-            background: #212324;
-            color: white;
-            text-align: center;
-            z-index: 5;
-        }
+.Titre {
+    font-size: 30px;
+    font-family: 'Oranienbaum', sans-serif; /* Utilisation de la police locale */
+    position: relative;
+    padding: 10px 20px 10px 20px;
+    background: #21232400;
+    color: white;
+    text-align: center;
+    z-index: 5;
+}
 
-        .bouton button {
-            display: block;
-            position: relative;
-            padding: 10px 10px 10px 10px;
-            background-color:white;
-            color: white;
-            text-align: left;
-            display: inline-block;
-            font-size: 16px;
-            transition-duration: 0.4s;
-            cursor: pointer;
-            border: solid;
-            border-color: white;
-            border-radius: 0px;
-            color: black;
-            text-align: left;
-        }
+.bouton button {
+    display: block;
+    position: relative;
+    padding: 10px 10px 10px 10px;
+    background-color:white;
+    color: white;
+    text-align: left;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: solid;
+    border-color: white;
+    border-radius: 0px;
+    color: black;
+    text-align: left;
+}
 
-        .bouton button:hover {
-            background-color: #212324;
-            color: #c72424;
-        }
+.bouton button:hover {
+    background-color: #21232436;
+    color: #c72424;
+}
 
-        /* Bandeau latéral droit */
-        .sidebar-right {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 350px;
-            height: 100%;
-            background-color: #212324;
-            padding: 20px;
-            border-left: 0px solid #ffffff;
-            z-index: 10;
-        }
+/* Bandeau latéral droit */
+.sidebar-right {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 350px;
+    height: 100%;
+    background-color: #21232431;
+    padding: 20px;
+    border-left: 0px solid #ffffff;
+    z-index: 10;
+}
 
-        /* Bandeau latéral gauche avec menu stylisé */
-        .sidebar-left {
-            position: fixed;
-            top: 250px; /* Décale la sidebar sous le titre */
-            left: 0;
-            width: 200px;
-            height: calc(100% - 250px); /* La hauteur de la sidebar est réduite de la hauteur du titre */
-            background-color: #333;
-            padding: 20px;
-            color: white;
-            border-right:  dotted 1px #ffffff;
-            z-index: 10;
-            transition: transform 0.3s ease;
-        }
+/* Bandeau latéral gauche avec menu stylisé */
+.sidebar-left {
+    position: fixed;
+    top: 250px; /* Décale la sidebar sous le titre */
+    left: 0;
+    width: 200px;
+    height: calc(100% - 250px); /* La hauteur de la sidebar est réduite de la hauteur du titre */
+    background-color: #3333333d;
+    padding: 20px;
+    color: white;
+    border-right: dotted 1px #ffffff;
+    border-top: dotted 1px #ffffff;
+    z-index: 10;
+    transition: transform 0.3s ease;
+}
 
-        /* Titre du menu "A voir" */
-        .menu-title {
-            font-size: 20px;
-            font: 1.2rem "Fira Sans", serif;
-            font-weight: bold;
-            margin-bottom: 15px;
-            padding: 5px 0;
-            text-align: center;
-        }
+/* Titre du menu "A voir" */
+.menu-title {
+    font-size: 20px;
+    font: 1.2rem "Fira Sans", serif;
+    font-weight: bold;
+    margin-bottom: 15px;
+    padding: 5px 0;
+    text-align: center;
+}
 
-        /* Style du bouton du menu déroulant */
-        .dropdown-btn {
-            background-color: #212324;
-            font-size: 20px;
-            font: 1.2rem "Fira Sans", serif;
-            color: white;
-            padding: 12px;
-            width: 100%;
-            text-align: left;
-            border: none;
-            border-radius: 2px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+/* Style du bouton du menu déroulant */
+.dropdown-btn {
+    background-color: #212324;
+    font-size: 20px;
+    font: 1.2rem "Fira Sans", serif;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        /* Effet de survol sur le bouton du menu déroulant */
-        .dropdown-btn:hover {
-            background-color: #c72424;
-        }
+/* Effet de survol sur le bouton du menu déroulant */
+.dropdown-btn:hover {
+    background-color: #c72424;
+}
 
-        /* Style du contenu du menu déroulant */
-        .dropdown-content {
-            display: none;
-            padding-left: 5px;
-            background-color: #ffffff;
-            border-radius: 2px;
-            margin-top: 10px;
-        }
+/* Style du contenu du menu déroulant */
+.dropdown-content {
+    display: none;
+    padding-left: 5px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    margin-top: 10px;
+}
 
-        /* Liste des éléments du menu */
-        .dropdown-content a {
-            display: block;
-            padding: 8px;
-            margin-right: 8px;
-            margin-left: 8px;
-            color: #264653;
-            text-decoration: none;
-            transition: 1s;
-            border-bottom: dotted 1px #212324; /* Réduire la largeur de la bordure à 1px */
-        }
+/* Liste des éléments du menu */
+.dropdown-content a {
+    display: block;
+    padding: 8px;
+    margin-right: 8px;
+    margin-left: 8px;
+    color: #264653;
+    text-decoration: none;
+    transition: 1s;
+    border-bottom: dotted 1px #212324; /* Réduire la largeur de la bordure à 1px */
+}
 
+/* Effet de survol des éléments du menu */
+.dropdown-content a:hover {
+    background-color: #c72424;
+}
 
-        /* Effet de survol des éléments du menu */
-        .dropdown-content a:hover {
-            background-color: #c72424;
-        }
+/* Carte */
+.Titre_carto_1 {
+    font-size: 20px;
+    font: 1.2rem "Fira Sans", serif;
+    background: #c724245e;
+    padding: 5px 10px;
+    margin-bottom: 0;  /* Retirer la marge pour coller le titre à la carte */
+    text-align: left;
+    color: #ffffff;
+    border-left: solid;
+    border-color: #ffffff;
+    border-radius: 0px;
+}
 
-        /* Carte */
-        .Titre_carto_1 {
-            font-size: 20px;
-            font: 1.2rem "Fira Sans", serif;
-            background: #c724245e;
-            padding: 5px 10px;
-            margin-bottom: 0;  /* Retirer la marge pour coller le titre à la carte */
-            text-align: left;
-            color: #ffffff;
-            border-left: solid;
-            border-color: #ffffff;
-            border-radius: 0px;
-        }
-
-        #map {
-            width: 100%;
-            height: 300px;
-            margin-top: 0px; /* Ajouter un petit espace entre le titre et la carte */
-            border-left: solid;
-            border-color: #ffffff;
-            border-radius: 0px;
-        }
+#map {
+    width: 100%;
+    height: 300px;
+    margin-top: 0px; /* Ajouter un petit espace entre le titre et la carte */
+    border-left: solid;
+    border-color: #ffffff;
+    border-radius: 0px;
+}
     </style>
 </head>
 <body>
@@ -178,13 +182,22 @@
     <!-- Sidebar gauche -->
     <div class="sidebar-left">
         <div class="menu-title"></div>
-        <button class="dropdown-btn" onclick="toggleDropdown()">Sites & réfférences ↓</button>
-        <div class="dropdown-content">
-            <a onclick="window.location.href = 'https://formations.univ-rennes2.fr/fr/formations/master-37/master-mention-geomatique-parcours-systeme-d-information-geographique-et-analyse-des-territoires-sigat-JEOC8L9A.html';">Site universitaire - master SIGAT</a>
-            <a onclick="window.location.href = 'https://esigat.wordpress.com/';">Site eSIGAT</a>
-            <a href="#">Lien 3</a>
+        <!-- Menu Sites & références -->
+        <button class="dropdown-btn" id="dropdown-sites" onclick="toggleDropdown('sites')">Sites & réfférences ↓</button>
+        <div class="dropdown-content" id="content-sites">
+            <a href="https://formations.univ-rennes2.fr/fr/formations/master-37/master-mention-geomatique-parcours-systeme-d-information-geographique-et-analyse-des-territoires-sigat-JEOC8L9A.html">Site universitaire - master SIGAT</a>
+            <a href="https://esigat.wordpress.com/">Site eSIGAT</a>
+        </div>
+    
+        <div class="menu-title"></div>
+        <!-- Menu Projets cartographiques -->
+        <button class="dropdown-btn" id="dropdown-projets" onclick="toggleDropdown('projets')">Projets cartographiques ↓</button>
+        <div class="dropdown-content" id="content-projets">
+            <a href="https://formations.univ-rennes2.fr/fr/formations/master-37/master-mention-geomatique-parcours-systeme-d-information-geographique-et-analyse-des-territoires-sigat-JEOC8L9A.html">Site universitaire - master SIGAT</a>
+            <a href="https://esigat.wordpress.com/">Site eSIGAT</a>
         </div>
     </div>
+    
 
     <!-- Contenu principal -->
     <div class="main-content">
@@ -198,24 +211,95 @@
         <h2 class="Titre_carto_1">Localisation du master</h2>
         <div id="map"></div>
         <script>
-        const map = new mapboxgl.Map({
-          container: "map",
-          style:"https://openmaptiles.geo.data.gouv.fr/styles/osm-bright/style.json", // Fond de carte
-          zoom: 14.3, // Zoom
-          center: [-1.7028425633630784,48.11784459245443],
-          minZoom: 5,
-        });
-        map.addControl(new mapboxgl.FullscreenControl());
-        map.addControl(new mapboxgl.NavigationControl());
-        </script>
+            const map = new mapboxgl.Map({
+                container: "map",
+                style: "https://openmaptiles.geo.data.gouv.fr/styles/osm-bright/style.json", // Fond de carte
+                zoom: 14.3, // Zoom
+                center: [-1.7028425633630784, 48.11784459245443], // Coordonnées du centre de la carte
+                minZoom: 5,
+                pitch: 45,  // Inclinaison de la vue
+                bearing: 0  // Rotation initiale de la vue
+            });
+            
+            // Ajoute un contrôle de navigation et de plein écran
+            map.addControl(new mapboxgl.FullscreenControl());
+            map.addControl(new mapboxgl.NavigationControl());
+            
+            // Crée un marqueur aux coordonnées du centre de la carte
+            new mapboxgl.Marker()
+                .setLngLat([-1.7028425633630784, 48.11784459245443])  // Position du marqueur
+                .addTo(map);  // Ajouter le marqueur à la carte
+            
+            let isAnimating = true; // Indique si l'animation est active
+            let interactionTimeout = null; // Stocke le délai pour redémarrer l'animation
+            
+            // Fonction pour faire tourner la carte
+            function rotateMap() {
+                if (!isAnimating) return; // Ne rien faire si l'animation est arrêtée
+                const currentBearing = map.getBearing(); // Récupère l'angle actuel
+                map.easeTo({
+                    center: [-1.7028425633630784, 48.11784459245443],  // Centre de la carte
+                    bearing: currentBearing + 30,  // Incrémente l'angle de 30° à chaque étape
+                    pitch: 45,  // Maintenir l'inclinaison
+                    duration: 2000,  // Durée de l'animation
+                    easing: t => t // Interpolation linéaire
+                });
+                setTimeout(rotateMap, 2000); // Replanifie la rotation
+            }
+            
+            // Démarre l'animation lorsque la carte est chargée
+            map.on("load", rotateMap);
+            
+            // Fonction pour arrêter l'animation
+            function stopAnimation() {
+                isAnimating = false; // Désactive l'animation
+                clearTimeout(interactionTimeout); // Supprime tout délai existant pour redémarrer
+            }
+            
+            // Fonction pour redémarrer l'animation après 30 secondes
+            function restartAnimation() {
+                if (isAnimating) return; // Ne rien faire si l'animation est déjà active
+                isAnimating = true; // Réactive l'animation
+                rotateMap(); // Relance la fonction de rotation
+            }
+            
+            // Détecte les interactions et arrête l'animation
+            map.on("mousedown", stopAnimation);
+            map.on("wheel", stopAnimation);
+            map.on("touchstart", stopAnimation);
+            map.on("move", stopAnimation);
+            map.on("pitchstart", stopAnimation);
+            
+            // Planifie le redémarrage de l'animation 30 secondes après la dernière interaction
+            map.on("mousedown", () => (interactionTimeout = setTimeout(restartAnimation, 3000)));
+            map.on("wheel", () => (interactionTimeout = setTimeout(restartAnimation, 3000)));
+            map.on("touchstart", () => (interactionTimeout = setTimeout(restartAnimation, 3000)));
+            map.on("move", () => (interactionTimeout = setTimeout(restartAnimation, 3000)));
+            map.on("pitchstart", () => (interactionTimeout = setTimeout(restartAnimation, 3000)));
+            </script>
+            
     </div>
 
     <script>
-        // Fonction pour ouvrir et fermer le menu déroulant
-        function toggleDropdown() {
-            var content = document.querySelector(".dropdown-content");
-            content.style.display = content.style.display === "block" ? "none" : "block";
+        // Fonction pour ouvrir et fermer un menu déroulant spécifique
+function toggleDropdown(menuId) {
+    var content = document.getElementById('content-' + menuId); // Sélectionne le contenu du menu
+    var allContents = document.querySelectorAll('.dropdown-content'); // Récupère tous les menus déroulants
+
+    // Ferme tous les menus sauf celui cliqué
+    allContents.forEach(function (el) {
+        if (el !== content) {
+            el.style.display = 'none'; // Cache tous les autres menus
         }
+    });
+
+    // Ouvre/ferme le menu ciblé
+    if (content.style.display === 'block') {
+        content.style.display = 'none'; // Si ouvert, fermer
+    } else {
+        content.style.display = 'block'; // Si fermé, ouvrir
+    }
+}
     </script>
 
 </body>
