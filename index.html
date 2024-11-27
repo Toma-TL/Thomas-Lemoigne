@@ -229,14 +229,17 @@ body {
         // Crée un élément HTML pour le marqueur
         const el = document.createElement('div');
             el.style.backgroundImage = "url('logo_sigat.png')"; // Chemin vers l'image
-            el.style.width = '50px'; // Largeur de l'image
-            el.style.height = '50px'; // Hauteur de l'image
-            el.style.backgroundSize = 'cover'; // Assure que l'image couvre tout l'élément
+            el.style.width = '50px'; // Largeur d'affichage
+            el.style.height = '50px'; // Hauteur d'affichage
+            el.style.backgroundSize = 'contain'; // Adapte l'image à l'élément sans déformation
+            el.style.backgroundRepeat = 'no-repeat'; // Pas de répétition
+            el.style.backgroundPosition = 'center'; // Centre l'image
+
 
 
 
         // Crée un marqueur aux coordonnées du centre de la carte
-        new mapboxgl.Marker()
+        new mapboxgl.Marker(el)
             .setLngLat([-1.7028425633630784, 48.11784459245443])  // Position du marqueur
             .addTo(map);  // Ajouter le marqueur à la carte
 
