@@ -10,9 +10,6 @@
     />
     <title>Document de Thomas</title>
     <style>
-      
-
-
         .Titre {
           font-size: 20px;
           font: 1.2rem "Fira Sans", serif;
@@ -22,9 +19,8 @@
           color: white;
           text-align: center;
         }
-  
-  
-        .bouton button{
+
+        .bouton button {
           display: block;
           position: relative;
           padding: 10px 10px 10px 10px;
@@ -41,37 +37,38 @@
           color: black;
           text-align: center;
         }
-          
+
         .bouton button:hover {
-          background-color: #264653;
-          color: #f4a261;
+          background-color: #555555;
+          color: #493c92;
         }
-  
-          #map {
-          position: fixed;
-          width: 99%;
-          height: 400px;
+
+        #map {
+          position: absolute;  /* Fixe la carte en haut à droite */
+          top: 10px;  /* Espace depuis le haut */
+          right: 10px;  /* Espace depuis la droite */
+          width: 400px;  /* Largeur de la carte */
+          height: 300px;  /* Hauteur de la carte */
         }
-  
-  
-  
-        .Titre_carto_1{
-          position: relative;
+
+        .Titre_carto_1 {
+          position: absolute;
+          top: 10px;  /* Espace depuis le haut */
+          right: 10px;  /* Espace depuis la droite */
           padding: 10px 30px 10px 30px;
-          font-size: 30px;
+          font-size: 20px;
           font: 1.2rem "Fira Sans", serif;
           background: #D4D3DC;
+          text-align: center;
+          color: #493c92;
         }
-  
-      </style>
+    </style>
 </head>
 <body>
 
     <div class="Titre">
       <h1>Carte web</h1>
     </div>
-
-
 
     <div class ="bouton">
       <button class ="bouton1" onclick="window.location.href = 'https://formations.univ-rennes2.fr/fr/formations/master-37/master-mention-geomatique-parcours-systeme-d-information-geographique-et-analyse-des-territoires-sigat-JEOC8L9A.html';"> 
@@ -80,24 +77,22 @@
           "Site eSIGAT" </button>
     </div>
 
-
-
-
     <div class="card">
-        <h2 class="Titre_carto_1">Carte interractive Carentan</h2>
-          <div id="map"></div>
-          <script>
-          const map = new mapboxgl.Map({
-            container: "map",
-            style:"https://openmaptiles.geo.data.gouv.fr/styles/osm-bright/style.json", //Fond de carte
-            zoom: 14.3, // Zoom
-            center: [-1.2476297131851721,49.303142214022714],
-            minZoom: 5,
-          })
-              map.addControl(new mapboxgl.FullscreenControl());
-              map.addControl(new mapboxgl.NavigationControl());
-    
-          </script>
-          
-        </div>
+        <!-- Nouveau titre pour la localisation du master -->
+        <h2 class="Titre_carto_1">Localisation du master</h2>
+        <div id="map"></div>
+        <script>
+        const map = new mapboxgl.Map({
+          container: "map",
+          style:"https://openmaptiles.geo.data.gouv.fr/styles/osm-bright/style.json", // Fond de carte
+          zoom: 14.3, // Zoom
+          center: [-1.2476297131851721,49.303142214022714],
+          minZoom: 5,
+        });
+        map.addControl(new mapboxgl.FullscreenControl());
+        map.addControl(new mapboxgl.NavigationControl());
+        </script>
+    </div>
+
+</body>
 </html>
