@@ -211,73 +211,43 @@ body {
         <h2 class="Titre_carto_1">Localisation du master</h2>
         <div id="map"></div>
         <script>
-            const map = new mapboxgl.Map({
-                container: "map",
-                style: "https://openmaptiles.geo.data.gouv.fr/styles/osm-bright/style.json", // Fond de carte
-                zoom: 14.3, // Zoom
-                center: [-1.7028425633630784, 48.11784459245443], // Coordonnées du centre de la carte
-                minZoom: 5,
-                pitch: 45,  // Inclinaison de la vue
-                bearing: 0  // Rotation initiale de la vue
+        const map = new mapboxgl.Map({
+          container: "map",
+          style: "https://openmaptiles.geo.data.gouv.fr/styles/osm-bright/style.json", // Fond de carte
+          zoom: 14.3, // Zoom
+          center: [-1.7028425633630784, 48.11784459245443], // Coordonnées du centre de la carte
+          minZoom: 5,
+          pitch: 45,  // Inclinaison de la vue (angle de vue)
+          bearing: 0  // Rotation de la vue (en degrés)
+        });
+        
+        // Ajoute un contrôle de navigation et de plein écran
+        map.addControl(new mapboxgl.FullscreenControl());
+        map.addControl(new mapboxgl.NavigationControl());
+
+        // Crée un marqueur aux coordonnées du centre de la carte
+        new mapboxgl.Marker()
+            .setLngLat([-1.7028425633630784, 48.11784459245443])  // Position du marqueur
+            .addTo(map);  // Ajouter le marqueur à la carte
+
+        // Fonction pour faire tourner la carte en continu
+        function rotateMap() {
+            const currentBearing = map.getBearing(); // Récupère l'angle actuel
+            map.easeTo({
+                center: [-1.7028425633630784, 48.11784459245443],  // Centre de la carte
+                bearing: currentBearing + 30,  // Incrémente l'angle de 30° à chaque étape
+                pitch: 45,  // Maintenir l'inclinaison
+                duration: 2000,  // Durée de l'animation pour chaque étape
+                easing: t => t // Linéarité pour une rotation fluide
             });
-            
-            // Ajoute un contrôle de navigation et de plein écran
-            map.addControl(new mapboxgl.FullscreenControl());
-            map.addControl(new mapboxgl.NavigationControl());
-            
-            // Crée un marqueur aux coordonnées du centre de la carte
-            new mapboxgl.Marker()
-                .setLngLat([-1.7028425633630784, 48.11784459245443])  // Position du marqueur
-                .addTo(map);  // Ajouter le marqueur à la carte
-            
-            let isAnimating = true; // Indique si l'animation est active
-            let interactionTimeout = null; // Stocke le délai pour redémarrer l'animation
-            
-            // Fonction pour faire tourner la carte
-            function rotateMap() {
-                if (!isAnimating) return; // Ne rien faire si l'animation est arrêtée
-                const currentBearing = map.getBearing(); // Récupère l'angle actuel
-                map.easeTo({
-                    center: [-1.7028425633630784, 48.11784459245443],  // Centre de la carte
-                    bearing: currentBearing + 30,  // Incrémente l'angle de 30° à chaque étape
-                    pitch: 45,  // Maintenir l'inclinaison
-                    duration: 2000,  // Durée de l'animation
-                    easing: t => t // Interpolation linéaire
-                });
-                setTimeout(rotateMap, 2000); // Replanifie la rotation
-            }
-            
-            // Démarre l'animation lorsque la carte est chargée
+            setTimeout(rotateMap, 2000); // Appelle la fonction après la durée de l'animation
+        }
+
+        // Démarre la rotation une fois la carte chargée
             map.on("load", rotateMap);
-            
-            // Fonction pour arrêter l'animation
-            function stopAnimation() {
-                isAnimating = false; // Désactive l'animation
-                clearTimeout(interactionTimeout); // Supprime tout délai existant pour redémarrer
-            }
-            
-            // Fonction pour redémarrer l'animation après 30 secondes
-            function restartAnimation() {
-                if (isAnimating) return; // Ne rien faire si l'animation est déjà active
-                isAnimating = true; // Réactive l'animation
-                rotateMap(); // Relance la fonction de rotation
-            }
-            
-            // Détecte les interactions et arrête l'animation
-            map.on("mousedown", stopAnimation);
-            map.on("wheel", stopAnimation);
-            map.on("touchstart", stopAnimation);
-            map.on("move", stopAnimation);
-            map.on("pitchstart", stopAnimation);
-            
-            // Planifie le redémarrage de l'animation 30 secondes après la dernière interaction
-            map.on("mousedown", () => (interactionTimeout = setTimeout(restartAnimation, 3000)));
-            map.on("wheel", () => (interactionTimeout = setTimeout(restartAnimation, 3000)));
-            map.on("touchstart", () => (interactionTimeout = setTimeout(restartAnimation, 3000)));
-            map.on("move", () => (interactionTimeout = setTimeout(restartAnimation, 3000)));
-            map.on("pitchstart", () => (interactionTimeout = setTimeout(restartAnimation, 3000)));
-            </script>
-            
+        
+        
+        </script>
     </div>
 
     <script>
