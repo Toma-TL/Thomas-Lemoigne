@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.maptiler.com/maplibre-gl-js/v1.13.0-rc.4/mapbox-gl.js"></script>
-    <link
-      href="https://cdn.maptiler.com/maplibre-gl-js/v1.13.0-rc.4/mapbox-gl.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.maptiler.com/maplibre-gl-js/v1.13.0-rc.4/mapbox-gl.css" rel="stylesheet" />
     <title>Document de Thomas</title>
     <style>
         /* Style général du body */
@@ -21,7 +18,9 @@
             height: 100vh;
             background: linear-gradient(to bottom, 
                 rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0.822) 50%, 
+                rgba(255, 255, 255, 0) 15%,
+                rgba(255, 255, 255, 0) 33%,
+                rgba(255, 255, 255, 0.918) 45%, 
                 rgb(255, 255, 255) 100%),
                 url('export_mer_paysage.png');
             background-size: cover;
@@ -32,7 +31,7 @@
 
         @keyframes fadeInBackground {
             to {
-                opacity: 3;
+                opacity: 1;
             }
         }
 
@@ -77,7 +76,6 @@
             color: #c72424;
         }
 
-
         #map {
             width: 300px; /* Taille de la carte */
             height: 300px;
@@ -90,91 +88,101 @@
             z-index: 1;
         }
 
-        /* Sidebar gauche */
-        .sidebar-left {
+        /* Style de la barre de navigation sous le titre */
+        .navbar {
             position: fixed;
-            top: 250px;
+            top: 350px;  /* La navbar sera placée après un espace de 60px */
             left: 0;
-            width: 200px;
-            height: calc(100% - 250px);
-            background-color: #ffffff3d;
-            padding: 20px;
+            width: 100%;
+            background-color: #ffffff;
+            padding: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        /* Style des boutons de la navbar */
+        .navbar button {
+            background-color: white;
+            color: black;
+            border: solid;
+            border-color: #799189;
+            border-radius: 2px;
+            font-size: 16px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .navbar button:hover {
+            background-color: #799189;
             color: white;
-            border-right: dotted 1px #ffffff;
-            border-top: dotted 1px #ffffff;
-            z-index: 10;
-            transition: transform 0.3s ease;
         }
 
         /* Menu déroulant */
-        .menu-title {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            padding: 5px 0;
-            text-align: center;
-        }
-
-        .dropdown-btn {
-            background-color: #212324;
-            font-size: 20px;
-            color: white;
-            padding: 12px;
-            width: 100%;
-            text-align: left;
-            border: none;
-            border-radius: 2px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .dropdown-btn:hover {
-            background-color: #649188;
+        .dropdown {
+            position: relative;
+            display: inline-block;
         }
 
         .dropdown-content {
             display: none;
-            padding-left: 5px;
-            background-color: #ffffff;
-            border-radius: 2px;
-            margin-top: 10px;
+            font-size: 15px;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border: 1px solid #ccc;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
 
         .dropdown-content a {
-            display: block;
-            padding: 8px;
-            color: #264653;
+            color: black;
+            padding: 12px 16px;
             text-decoration: none;
-            border-bottom: dotted 1px #212324;
+            display: block;
         }
 
         .dropdown-content a:hover {
-            background-color: #2d8567;
+            background-color: #ddd;
         }
+
     </style>
 </head>
 <body>
-
-    <!-- Sidebar gauche -->
-    <div class="sidebar-left">
-        <div class="menu-title"></div>
-        <button class="dropdown-btn" id="dropdown-sites" onclick="toggleDropdown('sites')">Sites & réfférences ↓</button>
-        <div class="dropdown-content" id="content-sites">
-            <a href="https://formations.univ-rennes2.fr/fr/formations/master-37/master-mention-geomatique-parcours-systeme-d-information-geographique-et-analyse-des-territoires-sigat-JEOC8L9A.html">Site universitaire - master SIGAT</a>
-            <a href="https://esigat.wordpress.com/">Site eSIGAT</a>
-        </div>
-        <div class="menu-title"></div>
-        <button class="dropdown-btn" id="dropdown-projets" onclick="toggleDropdown('projets')">Projets cartographiques ↓</button>
-        <div class="dropdown-content" id="content-projets">
-            <a href="https://formations.univ-rennes2.fr/fr/formations/master-37/master-mention-geomatique-parcours-systeme-d-information-geographique-et-analyse-des-territoires-sigat-JEOC8L9A.html">Site universitaire - master SIGAT</a>
-            <a href="https://esigat.wordpress.com/">Site eSIGAT</a>
-        </div>
-    </div>
 
     <!-- Contenu principal -->
     <div class="main-content">
         <div class="Titre">
             <h1>Thomas Lemoigne</h1>
+        </div>
+
+        <!-- Barre sous le titre -->
+        <div class="navbar">
+            <a href="https://toma-tl.github.io/Thomas-Lemoigne/" style="text-decoration: none;">
+                <button>Accueil</button>
+            </a>
+            <div class="dropdown">
+                <button>Productions</button>
+                <div class="dropdown-content">
+                    <a href="#">Cartographiques</a>
+                    <a href="#">Ateliers professionnels</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button>Expériences</button>
+                <div class="dropdown-content">
+                    <a href="#">Stage Parc Naturel Regional MCB</a>
+                    <a href="#">Bénévolat LPO</a>
+                    <a href="#">autres</a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -220,25 +228,6 @@
         }
 
         map.on("load", rotateMap);
-    </script>
-
-    <script>
-        function toggleDropdown(menuId) {
-            var content = document.getElementById('content-' + menuId);
-            var allContents = document.querySelectorAll('.dropdown-content');
-
-            allContents.forEach(function (el) {
-                if (el !== content) {
-                    el.style.display = 'none';
-                }
-            });
-
-            if (content.style.display === 'block') {
-                content.style.display = 'none';
-            } else {
-                content.style.display = 'block';
-            }
-        }
     </script>
 
 </body>
