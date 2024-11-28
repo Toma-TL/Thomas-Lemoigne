@@ -71,7 +71,7 @@
             border-color: white;
             border-radius: 0;
         }
-*
+
         #map {
             width: 250px; /* Taille de la carte */
             height: 250px;
@@ -170,7 +170,7 @@
             background-color: #ddd;
         }
 
-   /* Zone principale sous la navbar */
+        /* Zone principale sous la navbar */
         .content-zone {
             margin-top: 230px;
             padding: 20px;
@@ -180,7 +180,49 @@
             border-top-left-radius: 30px ;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
-   /* Zone principale sous la navbar */
+
+        .content-zone p2 {
+            text-align: center;
+        }
+
+        /* Section Timeline */
+        .timeline {
+            margin-top: 20px;
+            border-left: 4px solid #212324;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            margin-bottom: 80px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .timeline-item h4 {
+            font-size: 18px;
+            margin-bottom: 2px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background-color: #212324;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        /* Zone principale sous la navbar */
         .content-zone2 {
             margin-top: 100px;
             padding: 20px;
@@ -191,17 +233,11 @@
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-
-    /* Centrer le texte dans la content-zone */
-        .content-zone h2 {
-            text-align: center;
-        }
-
-    /* Centrer le texte dans la content-zone */
         .content-zone2 h2 {
             text-align: center;
         }
-    /* Conteneur des boutons pour les mettre côte à côte */
+
+        /* Conteneur des boutons pour les mettre côte à côte */
         .bouton-container {
             display: flex;
             justify-content: center; /* Centre les boutons horizontalement */
@@ -261,6 +297,32 @@
         <div class="content-zone">
             <h2>Mon profil !</h2>
             <p>Actuellment en master 2 SIGAt à l'université de Rennes, je suis passionné par l'exploration de données spatiales et des sujets qui en découlnet.</p>
+            <p>Mon parcours :</p>
+
+            <!-- Timeline -->
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>•  2024 - 2025  →  Master 2 SIGAT</h4>
+                    <p>Actuellement en Master 2 à l'université de Rennes, spécialité en SIG.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>•  2023 - 2024  →  Master 1 SIGAT</h4>
+                    <p>Stage en SIG dans un parc naturel régional, exploration de données environnementales.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>•  2022 - 2023  →  Licence Pro SIG - DAT</h4>
+                    <p>Stage en SIG dans un parc naturel régional, exploration de données environnementales.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>•  2021 - 2022  →  Licence 2 Géographie (option Histoire)</h4>
+                    <p>Stage en SIG dans un parc naturel régional, exploration de données environnementales.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>•  2020 - 2021  →  Licence 1 Géographie (option Histoire)</h4>
+                    <p>Stage en SIG dans un parc naturel régional, exploration de données environnementales.</p>
+                </div>
+                <!-- Ajoutez d'autres éléments de la timeline ici -->
+            </div>
             <p>Vous pouvez naviguer à travers les différentes sections pour découvrir davantage sur mon travail.</p>
             
         </div>
