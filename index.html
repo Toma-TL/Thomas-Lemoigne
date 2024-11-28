@@ -18,15 +18,15 @@
             height: 100vh;
             background: linear-gradient(to bottom, 
                 rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0) 20%,
-                rgba(255, 255, 255, 0) 35%,
-                rgba(255, 255, 255, 0.918) 43%, 
+                rgba(255, 255, 255, 0) 30%,
+                rgba(255, 255, 255, 0) 38%,
+                rgba(255, 255, 255, 0.918) 39%, 
                 rgb(255, 255, 255) 100%),
                 url('export_mer_paysage.png');
             background-size: cover;
             background-position: top center;
             background-repeat: no-repeat;
-            animation: fadeInBackground 2s forwards;
+            animation: fadeInBackground 10s forwards;
         }
 
         @keyframes fadeInBackground {
@@ -45,6 +45,7 @@
         }
 
         .Titre {
+            top: 100px;
             font-size: 30px;
             font-family: 'Oranienbaum', sans-serif;
             position: relative;
@@ -70,17 +71,12 @@
             border-color: white;
             border-radius: 0;
         }
-
-        .bouton button:hover {
-            background-color: #21232436;
-            color: #c72424;
-        }
-
+*
         #map {
             width: 300px; /* Taille de la carte */
             height: 300px;
             position: absolute;
-            top: 100px; /* Positionné en haut à gauche */
+            top: 80px; /* Positionné en haut à gauche */
             right: 20px; /* Positionné à droite */
             border-left: solid;
             border-color: #ffffff;
@@ -175,15 +171,60 @@
         }
 
    /* Zone principale sous la navbar */
-.content-zone {
-    padding: 50px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    height: auto;
-}
+        .content-zone {
+            margin-top: 230px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: solid;
+            border-color: #21232436;
+            border-top-left-radius: 30px ;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+   /* Zone principale sous la navbar */
+   .content-zone2 {
+            margin-top: 100px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: solid;
+            border-color: #21232436;
+            border-top-left-radius: 30px ;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
+
+/* Centrer le texte dans la content-zone */
+        .content-zone h2 {
+            text-align: center;
+        }
+
+/* Centrer le texte dans la content-zone */
+.content-zone2 h2 {
+            text-align: center;
+        }
+    /* Conteneur des boutons pour les mettre côte à côte */
+        .bouton-container {
+            display: flex;
+            justify-content: center; /* Centre les boutons horizontalement */
+            gap: 50px; /* Ajoute un espace entre les boutons */
+            margin-top: 10px; /* Espacement supérieur optionnel */
+        }
+
+        .bouton a button {
+            padding: 10px 20px;
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .bouton a button:hover {
+            background-color: #799189;
+            color: white;
+        }
+        
     </style>
 </head>
 <body>
@@ -218,20 +259,35 @@
 
         <!-- Zone sous la navbar -->
         <div class="content-zone">
-            <h2>Qui suis-je ?</h2>
+            <h2>Mon profil !</h2>
             <p>Actuellment en master 2 SIGAt à l'université de Rennes, je suis passionné par l'exploration de données spatiales et des sujets qui en découlnet.</p>
             <p>Vous pouvez naviguer à travers les différentes sections pour découvrir davantage sur mon travail.</p>
             
-            <!-- Bouton CV -->
+        </div>
+
+        <div class="content-zone2">
+            <h2>🔽 À télécharger 🔽</h2>
+            <!-- Conteneur des boutons -->
+            <div class="bouton-container">
+                <!-- Bouton CV -->
             <div class="bouton">
-                <!-- Lien pour télécharger le CV -->
                 <a href="CV_THOMAS_LEMOIGNE.pdf" download>
-                    <button>Mon CV</button>
+                        <button>📑 Mon CV</button>
                 </a>
             </div>
-            
+                <!-- Bouton Portfolio -->
+            <div class="bouton">
+                    <a href="BOOK_THOMAS_LEMOIGNE.pdf" download>
+                        <button>📔 Mon Portfolio</button>
+                    </a>
+                </div>
+            </div>
         </div>
         
+
+
+
+
     </div>
 
     <!-- Carte placée en haut à droite -->
