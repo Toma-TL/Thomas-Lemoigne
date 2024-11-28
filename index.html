@@ -44,17 +44,28 @@
             margin-left: 0px;
         }
 
+
         .Titre {
-            top: 100px;
+            top: 60px;
             font-size: 30px;
-            font-family: 'Oranienbaum', sans-serif;
+            font-family: 'Times New Roman', serif; /* Remplacez Oranienbaum par Times New Roman */
             position: relative;
-            padding: 10px 20px;
             background: #21232400;
             color: white;
             text-align: center;
             z-index: 5;
         }
+
+        .Titre h2 {
+            font-size: 25px;
+            font-family: 'Times New Roman', serif; /* Remplacez Oranienbaum par Times New Roman */
+            position: relative;
+            background: #21232400;
+            color: white;
+            text-align: center;
+            z-index: 5;
+        }
+
 
         /* Style du bouton */
         .bouton button {
@@ -117,7 +128,7 @@
             justify-content: space-around;
             align-items: center;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Ombre pour la navbar */
-        }
+       }
 
         /* Style des boutons de la navbar */
         .navbar button {
@@ -188,8 +199,10 @@
         /* Section Timeline */
         .timeline {
             margin-top: 20px;
-            border-left: 4px solid #212324;
+            right: 300px;
+            border-left: 4px solid #799189;
             padding-left: 30px;
+            text-align: left;
         }
 
         .timeline-item {
@@ -210,18 +223,6 @@
             margin-bottom: 2px;
         }
 
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: -8px;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            background-color: #212324;
-            border-radius: 50%;
-            border: 2px solid white;
-        }
-
         /* Zone principale sous la navbar */
         .content-zone2 {
             margin-top: 100px;
@@ -233,7 +234,7 @@
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .content-zone2 h2 {
+        .content-zone h2 {
             text-align: center;
         }
 
@@ -260,13 +261,46 @@
             background-color: #799189;
             color: white;
         }
+
+
+        /* Centrer l'image sur la page */
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0; /* Évite les marges inutiles */
+        }
+
+        .profil-image {
+            width: 1000px; /* Taille de l'image */
+            height: auto; /* Conserve les proportions */
+            display: block; /* S'assure que l'image reste un bloc autonome */
+        }
+
+
+
+
+        .content-zone h3 {
+            font-size: 16px;
+            font-family: 'Times New Roman', serif; /* Remplacez Oranienbaum par Times New Roman */
+            position: relative;
+            top: 50%;
+            left: 500px;
+            background-color: #f9f9f9;
+            padding: 5px;
+            border: 2px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: justify;
+            max-width: 800px; /* Limite la taille si la largeur est trop grande */
+        }
+
         
     </style>
 </head>
 <body>
 
     <!-- Barre de navigation en haut -->
-    <div class="navbar">
+    <!--<div class="navbar">
         <a href="https://toma-tl.github.io/Thomas-Lemoigne/" style="text-decoration: none;">
             <button>Accueil</button>
         </a>
@@ -285,68 +319,76 @@
                 <a href="#">autres</a>
             </div>
         </div>
-    </div>
+    </div>   -->
 
     <!-- Contenu principal -->
     <div class="main-content">
-        <div class="Titre">
+        <div class="Titre" margin-bottom="5px">
             <h1>Thomas Lemoigne</h1>
+            <h2>géomaticien & cartographe</h2>
         </div>
 
         <!-- Zone sous la navbar -->
         <div class="content-zone">
-            <h2>Mon profil !</h2>
-            <p>Actuellment en master 2 SIGAt à l'université de Rennes, je suis passionné par l'exploration de données spatiales et des sujets qui en découlnet.</p>
-            <p>Mon parcours :</p>
-
-            <!-- Timeline -->
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h4>•  2024 - 2025  →  Master 2 SIGAT</h4>
-                    <p>Actuellement en Master 2 à l'université de Rennes, spécialité en SIG.</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>•  2023 - 2024  →  Master 1 SIGAT</h4>
-                    <p>Stage en SIG dans un parc naturel régional, exploration de données environnementales.</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>•  2022 - 2023  →  Licence Pro SIG - DAT</h4>
-                    <p>Stage en SIG dans un parc naturel régional, exploration de données environnementales.</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>•  2021 - 2022  →  Licence 2 Géographie (option Histoire)</h4>
-                    <p>Stage en SIG dans un parc naturel régional, exploration de données environnementales.</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>•  2020 - 2021  →  Licence 1 Géographie (option Histoire)</h4>
-                    <p>Stage en SIG dans un parc naturel régional, exploration de données environnementales.</p>
-                </div>
-                <!-- Ajoutez d'autres éléments de la timeline ici -->
-            </div>
-            <p>Vous pouvez naviguer à travers les différentes sections pour découvrir davantage sur mon travail.</p>
             
-        </div>
+            <div class="center-container">
+                <img src="mon_profil.png" alt="Profil Image" class="profil-image">
+            </div>
 
-        <div class="content-zone2">
+
             <h2>🔽 À télécharger 🔽</h2>
             <!-- Conteneur des boutons -->
             <div class="bouton-container">
                 <!-- Bouton CV -->
-            <div class="bouton">
+            <div class="bouton" style="margin-bottom: 100px;">
                 <a href="CV_THOMAS_LEMOIGNE.pdf" download>
                         <button>📑 Mon CV</button>
                 </a>
             </div>
                 <!-- Bouton Portfolio -->
-            <div class="bouton">
+            <div class="bouton" style="margin-bottom: 100px;">
                     <a href="BOOK_THOMAS_LEMOIGNE.pdf" download>
                         <button>📔 Mon Portfolio</button>
                     </a>
                 </div>
             </div>
-        </div>
-        
 
+
+            <h3 style="margin-bottom: 100px;">Actuellement étudiant en Master 2 SIGAT (Systèmes d'Information Géographique et Analyse Territoriale) à l'Université de Rennes, je suis passionné par l'exploration des données spatiales et les multiples applications qui en découlent. Au fil de mon parcours, j'ai développé un intérêt particulier pour les problématiques liées à la sécurité intérieure. Cette orientation m'amène à réfléchir à l'utilisation des technologies SIG pour renforcer la gestion des risques, la prévention des crises et l’analyse des menaces, notamment dans le cadre de la planification et de la protection des territoires.
+
+                Convaincu du potentiel des outils géospatiaux dans ce domaine, je souhaite mettre à profit mes compétences en analyse spatiale, en visualisation de données et en gestion des systèmes d'information pour contribuer à des projets liés à la sécurité publique, la gestion des urgences ou encore la cybersécurité territoriale. Mon objectif est de participer activement à des initiatives visant à améliorer la résilience des territoires et à assurer la sécurité des populations.</h3>
+            
+
+            
+            <!-- Timeline -->
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>•  2024 - 2025  →  Master 2 SIGAT</h4>
+                    <p>----• traitements géomatiques approfondis</p>
+                    <p>----• gestion de données spatiales</p>
+                    <p>----• outils cartographiques web (web mapping)</p>
+                    <p>----• algorythmie</p>
+                    <p>----• gestion de projet</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>•  2023 - 2024  →  Master 1 SIGAT</h4>
+                    <p>......</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>•  2022 - 2023  →  Licence Pro SIG - DAT</h4>
+                    <p>......</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>•  2021 - 2022  →  Licence 2 Géographie (option Histoire)</h4>
+                    <p>......</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>•  2020 - 2021  →  Licence 1 Géographie (option Histoire)</h4>
+                    <p>......</p>
+                </div>
+                <!-- Ajoutez d'autres éléments de la timeline ici -->
+            </div>
+        </div>
 
 
 
