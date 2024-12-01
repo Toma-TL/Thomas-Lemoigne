@@ -38,7 +38,7 @@
         /* Conteneur principal */
         .main-content {
             flex-grow: 1;
-            padding: 20px;
+            padding: 10px;
             background-color: rgba(33, 35, 36, 0);
             overflow: auto;
             margin-left: 0px;
@@ -46,18 +46,8 @@
 
 
         .Titre {
-            top: 60px;
-            font-size: 30px;
-            font-family: 'Times New Roman', serif; /* Remplacez Oranienbaum par Times New Roman */
-            position: relative;
-            background: #21232400;
-            color: white;
-            text-align: center;
-            z-index: 5;
-        }
-
-        .Titre h2 {
-            font-size: 25px;
+            top: 80px;
+            font-size: 40px;
             font-family: 'Times New Roman', serif; /* Remplacez Oranienbaum par Times New Roman */
             position: relative;
             background: #21232400;
@@ -84,104 +74,14 @@
         }
 
         #map {
-            width: 250px; /* Taille de la carte */
-            height: 250px;
+            width: 300px;
+            height: 300px;
             position: absolute;
-            top: 80px; /* Positionné en haut à gauche */
-            right: 20px; /* Positionné à droite */
-            border-left: solid;
-            border-color: #ffffff;
+            top: 30px;
             border-radius: 5px;
             z-index: 1;
         }
 
-        /* Section avec l'image et le texte à côté */
-        .photo-texte {
-            display: flex;
-            align-items: center;
-            margin-top: 50px;
-            padding: 20px;
-        }
-
-        .photo-texte img {
-            width: 150px;  /* Taille de l'image */
-            height: 150px;
-            border-radius: 50%;
-            margin-right: 20px;
-        }
-
-        .photo-texte .texte {
-            font-size: 18px;
-            color: #333;
-        }
-
-        /* Style de la barre de navigation en haut */
-        .navbar {
-            position: fixed;
-            top: 0;  /* Fixe la navbar en haut */
-            left: 0;
-            width: 100%;
-            background-color: #ffffff;
-            padding: 10px;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Ombre pour la navbar */
-       }
-
-        /* Style des boutons de la navbar */
-        .navbar button {
-            background-color: white;
-            color: black;
-            border: solid;
-            border-color: #799189;
-            border-radius: 2px;
-            font-size: 16px;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .navbar button:hover {
-            background-color: #799189;
-            color: white;
-        }
-
-        /* Menu déroulant */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            font-size: 15px;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            border: 1px solid #ccc;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #ddd;
-        }
-
-        /* Zone principale sous la navbar */
         .content-zone {
             margin-top: 230px;
             padding: 20px;
@@ -252,53 +152,15 @@
 
 
 
-
-        .content-zone h3 {
-            font-size: 16px;
-            font-family: 'Times New Roman', serif; /* Remplacez Oranienbaum par Times New Roman */
-            position: relative;
-            top: 50%;
-            left: 500px;
-            background-color: #f9f9f9;
-            padding: 5px;
-            border: 2px solid #ccc;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: justify;
-            max-width: 800px; /* Limite la taille si la largeur est trop grande */
-        }
-
         
     </style>
 </head>
 <body>
 
-    <!-- Barre de navigation en haut -->
-    <!--<div class="navbar">
-        <a href="https://toma-tl.github.io/Thomas-Lemoigne/" style="text-decoration: none;">
-            <button>Accueil</button>
-        </a>
-        <div class="dropdown">
-            <button>Productions</button>
-            <div class="dropdown-content">
-                <a href="#">Cartographiques</a>
-                <a href="#">Ateliers professionnels</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button>Expériences</button>
-            <div class="dropdown-content">
-                <a href="#">Stage Parc Naturel Regional MCB</a>
-                <a href="#">Bénévolat LPO</a>
-                <a href="#">autres</a>
-            </div>
-        </div>
-    </div>-->
-
     <!-- Contenu principal -->
     <div class="main-content">
-        <div class="Titre" margin-bottom="5px">
+        <div class="Titre" >
             <h1>Thomas Lemoigne</h1>
-            <h2>géomaticien & cartographe</h2>
         </div>
 
         <!-- Zone sous la navbar -->
@@ -345,8 +207,8 @@
 
         const el = document.createElement('div');
         el.style.backgroundImage = "url('logo_sigat.png')";
-        el.style.width = '50px';
-        el.style.height = '50px';
+        el.style.width = '60px';
+        el.style.height = '60px';
         el.style.backgroundSize = 'contain';
         el.style.backgroundRepeat = 'no-repeat';
         el.style.backgroundPosition = 'center';
